@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from flask import Flask
 from covalent_api.class_a import ClassA
 from covalent_api.session import Session
+from flask_cors import CORS
 
 load_dotenv()
 
@@ -11,6 +12,8 @@ covalent = ClassA(session)
 CHAIN_ID = "1"  # ethereun chain
 
 app = Flask(__name__)
+CORS(app)
+
 
 
 @app.route("/")
